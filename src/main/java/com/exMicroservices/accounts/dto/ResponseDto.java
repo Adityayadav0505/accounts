@@ -1,8 +1,9 @@
 package com.exMicroservices.accounts.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
+@Data @AllArgsConstructor
 public class ResponseDto {
 
     private String statusCode;
