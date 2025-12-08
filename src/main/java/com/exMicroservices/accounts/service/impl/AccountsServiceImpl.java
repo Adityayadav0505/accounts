@@ -8,7 +8,7 @@ import com.exMicroservices.accounts.exception.CustomerAlreadyExistsException;
 import com.exMicroservices.accounts.mapper.CustomerMapper;
 import com.exMicroservices.accounts.repository.AccountsRepository;
 import com.exMicroservices.accounts.repository.CustomerRepository;
-import com.exMicroservices.accounts.service.IAccountsServic;
+import com.exMicroservices.accounts.service.IAccountsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ import java.util.Random;
 
 @Service
 @AllArgsConstructor
-public class AccountsServiceImpl implements IAccountsServic {
+public class AccountsServiceImpl implements IAccountsService {
 
     private AccountsRepository accountsRepository;
     private CustomerRepository customerRepository;
@@ -38,7 +38,7 @@ public class AccountsServiceImpl implements IAccountsServic {
         customer.setCreatedAt(LocalDateTime.now());
         customer.setCreatedBy("Anonymous");
         Customer savedCustomer = customerRepository.save(customer);
-        accountsRepository.save(createNewAccount(customer));
+        accountsRepository.save(createNewAccount(savedCustomer));
     }
 
     private Accounts createNewAccount(Customer customer){

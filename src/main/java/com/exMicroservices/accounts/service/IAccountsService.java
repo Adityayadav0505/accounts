@@ -2,7 +2,7 @@ package com.exMicroservices.accounts.service;
 
 import com.exMicroservices.accounts.dto.CustomerDto;
 
-public interface IAccountsServic {
+public interface IAccountsService {
 
     /**
      *
